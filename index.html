@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>QR Code Generator</h1>
+    </header>
+    <main>
+        <div class="qr-options">
+            <button class="option-button active" data-option="link">Generate Link QR Code</button>
+            <button class="option-button" data-option="text">Generate Text QR Code</button>
+        </div>
+        <div class="qr-container">
+            <div class="left" id="qrcode-container">
+                <div id="qrcode"></div>
+                <button id="download-button">Download QR Code</button>
+            </div>
+            <div class="right">
+                <div class="input-container" id="link-input-container">
+                    <div>Link</div>
+                    <input type="text" id="link-input" placeholder="https://...">
+                </div>
+                <div class="input-container" id="text-input-container">
+                    <div>Text</div>
+                    <input type="text" id="text-input" placeholder="Enter text...">
+                </div>
+                <div class="input-action">
+                    <select id="size-select">
+                        <option value="80">80px</option>
+                        <option value="120">120px</option>
+                        <option value="180">180px</option>
+                        <option value="200">200px</option>
+                        <option value="240" selected>240px</option>
+                        <option value="300">300px</option>
+                    </select>
+                    <button id="generate-button">Generate</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
