@@ -233,21 +233,21 @@
 
     <main class="main" id="main">
         <section class="controls">
-            <header class="hero">
-                <span class="hero-eyebrow">
-                    <span class="hero-eyebrow-dot"></span>
-                    Free QR code generator
-                </span>
-                <h1>
-                    <span class="hero-line-1">Make a QR.</span>
-                    <span class="hero-line-2"><em>That's the whole site.</em></span>
-                </h1>
-                <p class="hero-sub">
-                    Type, choose a type, scan. Everything happens in your browser — there's no server to send your data to. Download as SVG (lossless, infinite zoom) or PNG. Forever free.
-                </p>
-            </header>
+        <header class="hero">
+            <span class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                Free QR code generator
+            </span>
+            <h1>
+                <span class="hero-line-1">Make a QR.</span>
+                <span class="hero-line-2"><em>That's the whole site.</em></span>
+            </h1>
+            <p class="hero-sub">
+                Type, choose a type, scan. Everything happens in your browser — there's no server to send your data to. Download as SVG (lossless, infinite zoom) or PNG. Forever free.
+            </p>
+        </header>
 
-            <section class="section" aria-labelledby="content-heading">
+        <section class="section section-content" aria-labelledby="content-heading">
                 <header class="section-head">
                     <span class="section-num">01</span>
                     <h2 class="section-title" id="content-heading">Content</h2>
@@ -425,69 +425,69 @@
                 </div>
             </section>
 
-            <section class="section" aria-labelledby="style-heading">
-                <header class="section-head">
-                    <span class="section-num">02</span>
-                    <h2 class="section-title" id="style-heading">Style</h2>
-                    <span class="section-rule"></span>
-                </header>
+        <section class="section section-style" aria-labelledby="style-heading">
+            <header class="section-head">
+                <span class="section-num">02</span>
+                <h2 class="section-title" id="style-heading">Style</h2>
+                <span class="section-rule"></span>
+            </header>
 
-                <div class="customize-body">
-                    <div class="custom-row">
-                        <span class="custom-row-label">Foreground</span>
-                        <div class="swatches" data-target="fg">
-                            <button class="swatch" type="button" data-color="#0a0a0d" aria-current="true" style="--c:#0a0a0d" aria-label="Black"></button>
-                            <button class="swatch" type="button" data-color="#172a3a" style="--c:#172a3a" aria-label="Navy"></button>
-                            <button class="swatch" type="button" data-color="#0c2a13" style="--c:#0c2a13" aria-label="Forest"></button>
-                            <button class="swatch" type="button" data-color="#3d1818" style="--c:#3d1818" aria-label="Burgundy"></button>
-                            <button class="swatch" type="button" data-color="#291839" style="--c:#291839" aria-label="Plum"></button>
-                            <button class="swatch" type="button" data-color="#3d2c00" style="--c:#3d2c00" aria-label="Bronze"></button>
-                            <label class="swatch swatch-custom" aria-label="Custom color">
-                                <input type="color" data-color-custom="fg" value="#0a0a0d">
-                                <span class="swatch-custom-icon" aria-hidden="true">+</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="custom-row">
-                        <span class="custom-row-label">Background</span>
-                        <div class="swatches" data-target="bg">
-                            <button class="swatch" type="button" data-color="#ffffff" aria-current="true" style="--c:#ffffff" aria-label="White"></button>
-                            <button class="swatch" type="button" data-color="#f6f1e8" style="--c:#f6f1e8" aria-label="Cream"></button>
-                            <button class="swatch" type="button" data-color="#e8eef0" style="--c:#e8eef0" aria-label="Mist"></button>
-                            <button class="swatch" type="button" data-color="#fef9c3" style="--c:#fef9c3" aria-label="Pale yellow"></button>
-                            <button class="swatch" type="button" data-color="#fce4ec" style="--c:#fce4ec" aria-label="Pale pink"></button>
-                            <button class="swatch" type="button" data-color="#dbe8d4" style="--c:#dbe8d4" aria-label="Pale green"></button>
-                            <label class="swatch swatch-custom" aria-label="Custom color">
-                                <input type="color" data-color-custom="bg" value="#ffffff">
-                                <span class="swatch-custom-icon" aria-hidden="true">+</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="custom-row">
-                        <span class="custom-row-label">Pattern</span>
-                        <div class="shapes">
-                            <button class="shape" type="button" data-shape="square" aria-current="true">
-                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="5" height="5"/><rect x="17" y="2" width="5" height="5"/><rect x="2" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="2" y="17" width="5" height="5"/><rect x="10" y="17" width="5" height="5"/><rect x="17" y="17" width="5" height="5"/></svg>
-                                <span>Square</span>
-                            </button>
-                            <button class="shape" type="button" data-shape="rounded">
-                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="5" height="5" rx="1.2"/><rect x="17" y="2" width="5" height="5" rx="1.2"/><rect x="2" y="10" width="5" height="5" rx="1.2"/><rect x="10" y="10" width="5" height="5" rx="1.2"/><rect x="2" y="17" width="5" height="5" rx="1.2"/><rect x="10" y="17" width="5" height="5" rx="1.2"/><rect x="17" y="17" width="5" height="5" rx="1.2"/></svg>
-                                <span>Rounded</span>
-                            </button>
-                            <button class="shape" type="button" data-shape="dots">
-                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="3"/><circle cx="12.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="12.5" r="2.5"/><circle cx="12.5" cy="12.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="12.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/></svg>
-                                <span>Dots</span>
-                            </button>
-                            <button class="shape" type="button" data-shape="classy-rounded">
-                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4 Q2 2 4 2 H8 V8 H2 Z"/><path d="M16 2 H22 Q22 8 22 8 H16 Z"/><path d="M2 16 H8 Q8 22 8 22 H2 Z"/><path d="M22 16 V22 Q16 22 16 22 V16 Z"/><rect x="10" y="2" width="5" height="5" rx="2"/><rect x="2" y="10" width="5" height="5" rx="2"/><rect x="10" y="10" width="5" height="5" rx="2"/><rect x="17" y="10" width="5" height="5" rx="2"/><rect x="10" y="17" width="5" height="5" rx="2"/></svg>
-                                <span>Classy</span>
-                            </button>
-                        </div>
+            <div class="customize-body">
+                <div class="custom-row">
+                    <span class="custom-row-label">Foreground</span>
+                    <div class="swatches" data-target="fg">
+                        <button class="swatch" type="button" data-color="#0a0a0d" aria-current="true" style="--c:#0a0a0d" aria-label="Black"></button>
+                        <button class="swatch" type="button" data-color="#172a3a" style="--c:#172a3a" aria-label="Navy"></button>
+                        <button class="swatch" type="button" data-color="#0c2a13" style="--c:#0c2a13" aria-label="Forest"></button>
+                        <button class="swatch" type="button" data-color="#3d1818" style="--c:#3d1818" aria-label="Burgundy"></button>
+                        <button class="swatch" type="button" data-color="#291839" style="--c:#291839" aria-label="Plum"></button>
+                        <button class="swatch" type="button" data-color="#3d2c00" style="--c:#3d2c00" aria-label="Bronze"></button>
+                        <label class="swatch swatch-custom" aria-label="Custom color">
+                            <input type="color" data-color-custom="fg" value="#0a0a0d">
+                            <span class="swatch-custom-icon" aria-hidden="true">+</span>
+                        </label>
                     </div>
                 </div>
-            </section>
+
+                <div class="custom-row">
+                    <span class="custom-row-label">Background</span>
+                    <div class="swatches" data-target="bg">
+                        <button class="swatch" type="button" data-color="#ffffff" aria-current="true" style="--c:#ffffff" aria-label="White"></button>
+                        <button class="swatch" type="button" data-color="#f6f1e8" style="--c:#f6f1e8" aria-label="Cream"></button>
+                        <button class="swatch" type="button" data-color="#e8eef0" style="--c:#e8eef0" aria-label="Mist"></button>
+                        <button class="swatch" type="button" data-color="#fef9c3" style="--c:#fef9c3" aria-label="Pale yellow"></button>
+                        <button class="swatch" type="button" data-color="#fce4ec" style="--c:#fce4ec" aria-label="Pale pink"></button>
+                        <button class="swatch" type="button" data-color="#dbe8d4" style="--c:#dbe8d4" aria-label="Pale green"></button>
+                        <label class="swatch swatch-custom" aria-label="Custom color">
+                            <input type="color" data-color-custom="bg" value="#ffffff">
+                            <span class="swatch-custom-icon" aria-hidden="true">+</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="custom-row">
+                    <span class="custom-row-label">Pattern</span>
+                    <div class="shapes">
+                        <button class="shape" type="button" data-shape="square" aria-current="true">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="5" height="5"/><rect x="17" y="2" width="5" height="5"/><rect x="2" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="2" y="17" width="5" height="5"/><rect x="10" y="17" width="5" height="5"/><rect x="17" y="17" width="5" height="5"/></svg>
+                            <span>Square</span>
+                        </button>
+                        <button class="shape" type="button" data-shape="rounded">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="5" height="5" rx="1.2"/><rect x="17" y="2" width="5" height="5" rx="1.2"/><rect x="2" y="10" width="5" height="5" rx="1.2"/><rect x="10" y="10" width="5" height="5" rx="1.2"/><rect x="2" y="17" width="5" height="5" rx="1.2"/><rect x="10" y="17" width="5" height="5" rx="1.2"/><rect x="17" y="17" width="5" height="5" rx="1.2"/></svg>
+                            <span>Rounded</span>
+                        </button>
+                        <button class="shape" type="button" data-shape="dots">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="3"/><circle cx="12.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="12.5" r="2.5"/><circle cx="12.5" cy="12.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="12.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/></svg>
+                            <span>Dots</span>
+                        </button>
+                        <button class="shape" type="button" data-shape="classy-rounded">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4 Q2 2 4 2 H8 V8 H2 Z"/><path d="M16 2 H22 Q22 8 22 8 H16 Z"/><path d="M2 16 H8 Q8 22 8 22 H2 Z"/><path d="M22 16 V22 Q16 22 16 22 V16 Z"/><rect x="10" y="2" width="5" height="5" rx="2"/><rect x="2" y="10" width="5" height="5" rx="2"/><rect x="10" y="10" width="5" height="5" rx="2"/><rect x="17" y="10" width="5" height="5" rx="2"/><rect x="10" y="17" width="5" height="5" rx="2"/></svg>
+                            <span>Classy</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
         </section>
 
         <aside class="stage" aria-label="QR preview and download">
