@@ -84,12 +84,9 @@
             "URL QR codes",
             "Instagram profile QR codes",
             "Text QR codes",
-            "Email QR codes (mailto links)",
             "Phone QR codes (tel links)",
             "SMS QR codes",
             "Wi-Fi QR codes (auto-connect)",
-            "vCard contact QR codes",
-            "Geographic location QR codes",
             "SVG export — lossless vector",
             "PNG export at 512, 1024, and 2048 pixels",
             "Custom foreground and background colors",
@@ -267,10 +264,6 @@
                         <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
                         <span>Text</span>
                     </button>
-                    <button class="type" data-type="email" role="tab" aria-label="Email QR code">
-                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-                        <span>Email</span>
-                    </button>
                     <button class="type" data-type="phone" role="tab" aria-label="Phone QR code">
                         <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         <span>Phone</span>
@@ -282,14 +275,6 @@
                     <button class="type" data-type="wifi" role="tab" aria-label="Wi-Fi QR code">
                         <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
                         <span>Wi-Fi</span>
-                    </button>
-                    <button class="type" data-type="vcard" role="tab" aria-label="vCard contact QR code">
-                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5 17.5a4 4 0 0 1 8 0"/><line x1="15" y1="9" x2="19" y2="9"/><line x1="15" y1="13" x2="19" y2="13"/></svg>
-                        <span>Contact</span>
-                    </button>
-                    <button class="type" data-type="geo" role="tab" aria-label="Location QR code">
-                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                        <span>Location</span>
                     </button>
                 </nav>
 
@@ -313,21 +298,6 @@
                         <label class="field">
                             <span class="field-label">Text</span>
                             <textarea class="field-input field-textarea" data-bind="text.value" placeholder="Anything you want — up to a few thousand characters." rows="5"></textarea>
-                        </label>
-                    </form>
-
-                    <form class="form" data-form="email" hidden autocomplete="off">
-                        <label class="field">
-                            <span class="field-label">Email address</span>
-                            <input class="field-input" type="email" data-bind="email.address" placeholder="hello@makeqr.io" spellcheck="false">
-                        </label>
-                        <label class="field">
-                            <span class="field-label">Subject <span class="field-optional">— optional</span></span>
-                            <input class="field-input" type="text" data-bind="email.subject" placeholder="">
-                        </label>
-                        <label class="field">
-                            <span class="field-label">Body <span class="field-optional">— optional</span></span>
-                            <textarea class="field-input field-textarea" data-bind="email.body" rows="3"></textarea>
                         </label>
                     </form>
 
@@ -370,57 +340,6 @@
                             <input type="checkbox" data-bind="wifi.hidden">
                             <span>Hidden network</span>
                         </label>
-                    </form>
-
-                    <form class="form" data-form="vcard" hidden autocomplete="off">
-                        <div class="field-row-2">
-                            <label class="field">
-                                <span class="field-label">First name</span>
-                                <input class="field-input" type="text" data-bind="vcard.firstName">
-                            </label>
-                            <label class="field">
-                                <span class="field-label">Last name</span>
-                                <input class="field-input" type="text" data-bind="vcard.lastName">
-                            </label>
-                        </div>
-                        <div class="field-row-2">
-                            <label class="field">
-                                <span class="field-label">Organization</span>
-                                <input class="field-input" type="text" data-bind="vcard.org">
-                            </label>
-                            <label class="field">
-                                <span class="field-label">Title</span>
-                                <input class="field-input" type="text" data-bind="vcard.title">
-                            </label>
-                        </div>
-                        <div class="field-row-2">
-                            <label class="field">
-                                <span class="field-label">Phone</span>
-                                <input class="field-input" type="tel" data-bind="vcard.phone">
-                            </label>
-                            <label class="field">
-                                <span class="field-label">Email</span>
-                                <input class="field-input" type="email" data-bind="vcard.email">
-                            </label>
-                        </div>
-                        <label class="field">
-                            <span class="field-label">Website</span>
-                            <input class="field-input" type="url" data-bind="vcard.url" placeholder="https://">
-                        </label>
-                    </form>
-
-                    <form class="form" data-form="geo" hidden autocomplete="off">
-                        <div class="field-row-2">
-                            <label class="field">
-                                <span class="field-label">Latitude</span>
-                                <input class="field-input" type="text" data-bind="geo.lat" placeholder="37.5665">
-                            </label>
-                            <label class="field">
-                                <span class="field-label">Longitude</span>
-                                <input class="field-input" type="text" data-bind="geo.lng" placeholder="126.9780">
-                            </label>
-                        </div>
-                        <p class="field-hint">Tip — in Google Maps, right-click any spot to copy its lat/lng.</p>
                     </form>
                 </div>
             </section>

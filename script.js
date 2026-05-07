@@ -2,8 +2,8 @@
 
 (() => {
     const TYPE_LABEL = {
-        url: 'URL', instagram: 'Instagram', text: 'Text', email: 'Email', phone: 'Phone',
-        sms: 'SMS', wifi: 'Wi-Fi', vcard: 'Contact', geo: 'Location',
+        url: 'URL', instagram: 'Instagram', text: 'Text',
+        phone: 'Phone', sms: 'SMS', wifi: 'Wi-Fi',
     };
 
     const state = {
@@ -12,14 +12,9 @@
             'url.value': 'https://makeqr.io',
             'instagram.username': '',
             'text.value': '',
-            'email.address': '', 'email.subject': '', 'email.body': '',
             'phone.number': '',
             'sms.number': '', 'sms.message': '',
             'wifi.ssid': '', 'wifi.password': '', 'wifi.encryption': 'WPA', 'wifi.hidden': false,
-            'vcard.firstName': '', 'vcard.lastName': '',
-            'vcard.org': '', 'vcard.title': '',
-            'vcard.phone': '', 'vcard.email': '', 'vcard.url': '',
-            'geo.lat': '', 'geo.lng': '',
         },
         style: {
             fg: '#0a0a0d',
@@ -46,13 +41,6 @@
             }
             case 'text':
                 return f['text.value'];
-            case 'email': {
-                if (!f['email.address']) return '';
-                const params = [];
-                if (f['email.subject']) params.push('subject=' + encodeURIComponent(f['email.subject']));
-                if (f['email.body']) params.push('body=' + encodeURIComponent(f['email.body']));
-                return `mailto:${f['email.address']}${params.length ? '?' + params.join('&') : ''}`;
-            }
             case 'phone': {
                 const n = f['phone.number'].replace(/[^\d+]/g, '');
                 return n ? `tel:${n}` : '';
@@ -71,27 +59,6 @@
                 const hidden = f['wifi.hidden'] ? 'true' : 'false';
                 const passPart = enc !== 'nopass' && pass ? `P:${escWifi(pass)};` : '';
                 return `WIFI:T:${enc};S:${escWifi(ssid)};${passPart}H:${hidden};;`;
-            }
-            case 'vcard': {
-                const fn = `${f['vcard.firstName']} ${f['vcard.lastName']}`.trim();
-                if (!fn && !f['vcard.org'] && !f['vcard.phone'] && !f['vcard.email']) return '';
-                const lines = ['BEGIN:VCARD', 'VERSION:3.0'];
-                if (fn) lines.push(`FN:${fn}`);
-                if (f['vcard.firstName'] || f['vcard.lastName']) {
-                    lines.push(`N:${f['vcard.lastName']};${f['vcard.firstName']};;;`);
-                }
-                if (f['vcard.org']) lines.push(`ORG:${f['vcard.org']}`);
-                if (f['vcard.title']) lines.push(`TITLE:${f['vcard.title']}`);
-                if (f['vcard.phone']) lines.push(`TEL;TYPE=CELL:${f['vcard.phone']}`);
-                if (f['vcard.email']) lines.push(`EMAIL:${f['vcard.email']}`);
-                if (f['vcard.url']) lines.push(`URL:${f['vcard.url']}`);
-                lines.push('END:VCARD');
-                return lines.join('\n');
-            }
-            case 'geo': {
-                const lat = f['geo.lat'].trim();
-                const lng = f['geo.lng'].trim();
-                return (lat && lng) ? `geo:${lat},${lng}` : '';
             }
         }
         return '';
