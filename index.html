@@ -1,19 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-adsense-account" content="ca-pub-8257373122503484">
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="qr" />
-    <meta name="keywords" content="qrcode">
-    <meta name="keywords" content="큐알">
-    <meta name="description" content="Generate QR Codes for free. Easy, simple and fast. Supports mobile environment." />
-    <meta name="description" lang="en" content="Generate QR Codes for free. Easy, simple and fast. Supports mobile environment.">
-    <meta name="description" lang="ko" content="QR 코드를 무료로 생성하세요. 쉽고 간단하며 빠릅니다. 모바일 환경에서도 만들어보세요.">
-    
-    <title>QR Code Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0d">
+    <meta name="color-scheme" content="dark">
+
+    <meta name="google-adsense-account" content="ca-pub-8257373122503484">
+
+    <title>Free QR Code Generator — makeqr.io · No signup, no ads, no watermark</title>
+
+    <meta name="description" content="Free QR code generator with no signup, no ads, and no watermark. Make QR codes for URLs, Wi-Fi, vCard, email, phone, SMS, and locations — entirely in your browser. SVG and PNG download.">
+    <meta name="keywords" content="qr code generator, free qr code, qr generator, no signup qr, wifi qr code, vcard qr code, url qr code, qr code maker, free qr generator, qrcode, 큐알코드 생성기, 큐알 코드 만들기, 와이파이 큐알, 무료 큐알">
+
+    <meta name="author" content="makeqr.io">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="googlebot" content="index, follow">
+
+    <link rel="canonical" href="https://makeqr.io/">
+    <link rel="alternate" hreflang="en" href="https://makeqr.io/">
+    <link rel="alternate" hreflang="ko" href="https://makeqr.io/">
+    <link rel="alternate" hreflang="x-default" href="https://makeqr.io/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://makeqr.io/">
+    <meta property="og:site_name" content="makeqr.io">
+    <meta property="og:title" content="Free QR Code Generator — makeqr.io">
+    <meta property="og:description" content="Free QR codes. No signup. No ads. No watermark. Generated in your browser.">
+    <meta property="og:image" content="https://makeqr.io/og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="makeqr.io — Free QR Code Generator">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ko_KR">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free QR Code Generator — makeqr.io">
+    <meta name="twitter:description" content="Free QR codes. No signup. No ads. No watermark. Generated in your browser.">
+    <meta name="twitter:image" content="https://makeqr.io/og.png">
+    <meta name="twitter:image:alt" content="makeqr.io — Free QR Code Generator">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23e0e4e8'/%3E%3Cstop offset='0.5' stop-color='%23b4bac0'/%3E%3Cstop offset='1' stop-color='%23d8dde1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cg fill='%23141519'%3E%3Crect x='20' y='20' width='18' height='18'/%3E%3Crect x='62' y='20' width='18' height='18'/%3E%3Crect x='20' y='62' width='18' height='18'/%3E%3Crect x='44' y='44' width='10' height='10'/%3E%3Crect x='62' y='44' width='10' height='10'/%3E%3Crect x='44' y='62' width='10' height='10'/%3E%3Crect x='62' y='62' width='18' height='18'/%3E%3C/g%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WX1F3EG3L1"></script>
     <script>
@@ -23,51 +57,619 @@
 
       gtag('config', 'G-WX1F3EG3L1');
     </script>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "makeqr.io",
+        "alternateName": "makeqr",
+        "url": "https://makeqr.io/",
+        "description": "Free QR code generator with no signup, no ads, and no watermark. Generate QR codes for URLs, text, email, phone numbers, SMS, Wi-Fi, vCard contacts, and locations — entirely in your browser.",
+        "applicationCategory": "UtilityApplication",
+        "applicationSubCategory": "QR Code Generator",
+        "operatingSystem": "Any (browser-based)",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "isAccessibleForFree": true,
+        "inLanguage": ["en", "ko"],
+        "featureList": [
+            "URL QR codes",
+            "Instagram profile QR codes",
+            "Text QR codes",
+            "Email QR codes (mailto links)",
+            "Phone QR codes (tel links)",
+            "SMS QR codes",
+            "Wi-Fi QR codes (auto-connect)",
+            "vCard contact QR codes",
+            "Geographic location QR codes",
+            "SVG export — lossless vector",
+            "PNG export at 512, 1024, and 2048 pixels",
+            "Custom foreground and background colors",
+            "Square, rounded, dots, and classy dot patterns",
+            "Live preview as you type",
+            "100% browser-based — data never leaves your device",
+            "No signup, no ads, no watermark"
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Are the QR codes really free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Every feature is free — no signup, no premium tier, and no watermark on the QR codes you download. The SVG and PNG files are yours to use however you'd like, including commercially."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do these QR codes ever expire?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. The QR codes generated here are static — they encode your data directly into the pattern. They will keep working forever, as long as the destination (URL, network, etc.) is still valid."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I use these QR codes commercially?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. There are no usage restrictions. Print them on packaging, business cards, posters, restaurant menus, signage, products — anywhere you like."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does makeqr.io track me or my QR data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The site uses Google Analytics for basic visit metrics, but the QR generation runs entirely in your browser. Your input never reaches any server because there is no server handling the QR data."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I download SVG or PNG?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "SVG is a vector format that stays perfectly sharp at any size — best for print, signage, business cards, and anywhere the size might change. PNG is a raster image at a fixed pixel size — best when you need a specific resolution or your software does not support SVG."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I add a logo or image to the center?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Logo overlay is on the roadmap. For now, makeqr.io focuses on producing clean, highly-scannable QR codes with custom colors and dot patterns. Adding a center image will arrive in a future update."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I make a Wi-Fi QR code?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pick the Wi-Fi tab, enter your network name (SSID) and password, and choose the encryption type (WPA/WPA2 is the most common). The QR code can then be scanned by most modern phones to connect to the network automatically."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Will the QR still work if I change colors?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, as long as there is enough contrast between the foreground (the dots) and the background. Dark dots on a light background scan most reliably. Always test scan it before printing, especially with custom colors."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "makeqr.io",
+        "url": "https://makeqr.io/",
+        "logo": "https://makeqr.io/og.png"
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <h1>QR Code Generator</h1>
+    <div class="atmosphere" aria-hidden="true">
+        <div class="grid-bg"></div>
+        <div class="aura"></div>
+        <div class="noise"></div>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <noscript>
+        <div class="noscript-banner">JavaScript is required — makeqr.io generates QR codes locally in your browser.</div>
+    </noscript>
+
+    <header class="topbar">
+        <a class="brand" href="/" aria-label="makeqr.io home">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                    <rect x="2" y="2" width="7" height="7" rx="1"/>
+                    <rect x="15" y="2" width="7" height="7" rx="1"/>
+                    <rect x="2" y="15" width="7" height="7" rx="1"/>
+                    <rect x="11" y="11" width="3" height="3"/>
+                    <rect x="15" y="13" width="2" height="2"/>
+                    <rect x="19" y="11" width="3" height="3"/>
+                    <rect x="13" y="15" width="2" height="2"/>
+                    <rect x="17" y="17" width="2" height="2"/>
+                    <rect x="13" y="19" width="2" height="2"/>
+                    <rect x="20" y="20" width="2" height="2"/>
+                </svg>
+            </span>
+            <span class="brand-name">makeqr<span class="brand-suffix">.io</span></span>
+        </a>
     </header>
-    <main>
-        <div class="qr-options">
-            Generate QR Codes for free. Easy, simple and fast. Supports mobile environment.
+
+    <div class="manifesto-strip">
+        <div class="manifesto" aria-label="Site principles">
+            <span class="m-item">Free</span>
+            <span class="m-sep" aria-hidden="true">▢</span>
+            <span class="m-item">No signup</span>
+            <span class="m-sep" aria-hidden="true">▢</span>
+            <span class="m-item">No ads</span>
+            <span class="m-sep" aria-hidden="true">▢</span>
+            <span class="m-item">No watermark</span>
+            <span class="m-sep" aria-hidden="true">▢</span>
+            <span class="m-item">Generated in-browser</span>
         </div>
-        <div class="qr-options">
-            <button class="option-button active" data-option="link">Generate Link QR Code</button>
-            <button class="option-button" data-option="text">Generate Text QR Code</button>
-        </div>
-        <div class="qr-container">
-            <div class="left" id="qrcode-container">
-                <div id="qrcode"></div>
-                <button id="download-button">Download QR Code</button>
+    </div>
+
+    <main class="main" id="main">
+        <section class="controls">
+            <header class="hero">
+                <span class="hero-eyebrow">
+                    <span class="hero-eyebrow-dot"></span>
+                    Free QR code generator
+                </span>
+                <h1>
+                    <span class="hero-line-1">Make a QR.</span>
+                    <span class="hero-line-2"><em>That's the whole site.</em></span>
+                </h1>
+                <p class="hero-sub">
+                    Type, choose a type, scan. Everything happens in your browser — there's no server to send your data to. Download as SVG (lossless, infinite zoom) or PNG. Forever free.
+                </p>
+            </header>
+
+            <section class="section" aria-labelledby="content-heading">
+                <header class="section-head">
+                    <span class="section-num">01</span>
+                    <h2 class="section-title" id="content-heading">Content</h2>
+                    <span class="section-rule"></span>
+                </header>
+
+                <nav class="types" role="tablist" aria-label="QR content type">
+                    <button class="type" data-type="url" aria-current="true" role="tab" aria-label="URL QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                        <span>URL</span>
+                    </button>
+                    <button class="type" data-type="instagram" role="tab" aria-label="Instagram profile QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.4" r="0.8" fill="currentColor" stroke="none"/></svg>
+                        <span>Instagram</span>
+                    </button>
+                    <button class="type" data-type="text" role="tab" aria-label="Text QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="14" y2="18"/></svg>
+                        <span>Text</span>
+                    </button>
+                    <button class="type" data-type="email" role="tab" aria-label="Email QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                        <span>Email</span>
+                    </button>
+                    <button class="type" data-type="phone" role="tab" aria-label="Phone QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span>Phone</span>
+                    </button>
+                    <button class="type" data-type="sms" role="tab" aria-label="SMS QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span>SMS</span>
+                    </button>
+                    <button class="type" data-type="wifi" role="tab" aria-label="Wi-Fi QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+                        <span>Wi-Fi</span>
+                    </button>
+                    <button class="type" data-type="vcard" role="tab" aria-label="vCard contact QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5 17.5a4 4 0 0 1 8 0"/><line x1="15" y1="9" x2="19" y2="9"/><line x1="15" y1="13" x2="19" y2="13"/></svg>
+                        <span>Contact</span>
+                    </button>
+                    <button class="type" data-type="geo" role="tab" aria-label="Location QR code">
+                        <svg class="type-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Location</span>
+                    </button>
+                </nav>
+
+                <div class="forms">
+                    <form class="form is-active" data-form="url" autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Destination URL</span>
+                            <input class="field-input" type="url" data-bind="url.value" placeholder="https://makeqr.io" value="https://makeqr.io" spellcheck="false">
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="instagram" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Instagram username</span>
+                            <input class="field-input" type="text" data-bind="instagram.username" placeholder="@username" spellcheck="false" autocapitalize="off">
+                        </label>
+                        <p class="field-hint">Links to instagram.com/username — paste a profile URL or just the handle.</p>
+                    </form>
+
+                    <form class="form" data-form="text" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Text</span>
+                            <textarea class="field-input field-textarea" data-bind="text.value" placeholder="Anything you want — up to a few thousand characters." rows="5"></textarea>
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="email" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Email address</span>
+                            <input class="field-input" type="email" data-bind="email.address" placeholder="hello@makeqr.io" spellcheck="false">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">Subject <span class="field-optional">— optional</span></span>
+                            <input class="field-input" type="text" data-bind="email.subject" placeholder="">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">Body <span class="field-optional">— optional</span></span>
+                            <textarea class="field-input field-textarea" data-bind="email.body" rows="3"></textarea>
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="phone" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Phone number</span>
+                            <input class="field-input" type="tel" data-bind="phone.number" placeholder="+82 10 1234 5678">
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="sms" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Phone number</span>
+                            <input class="field-input" type="tel" data-bind="sms.number" placeholder="+82 10 1234 5678">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">Message <span class="field-optional">— optional</span></span>
+                            <textarea class="field-input field-textarea" data-bind="sms.message" rows="2"></textarea>
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="wifi" hidden autocomplete="off">
+                        <label class="field">
+                            <span class="field-label">Network name (SSID)</span>
+                            <input class="field-input" type="text" data-bind="wifi.ssid" placeholder="MyHomeWiFi">
+                        </label>
+                        <label class="field">
+                            <span class="field-label">Password</span>
+                            <input class="field-input" type="text" data-bind="wifi.password" placeholder="">
+                        </label>
+                        <fieldset class="field">
+                            <legend class="field-label">Encryption</legend>
+                            <div class="segmented" data-radio="wifi.encryption">
+                                <label><input type="radio" name="wifi-encryption" value="WPA" checked><span>WPA / WPA2</span></label>
+                                <label><input type="radio" name="wifi-encryption" value="WEP"><span>WEP</span></label>
+                                <label><input type="radio" name="wifi-encryption" value="nopass"><span>None</span></label>
+                            </div>
+                        </fieldset>
+                        <label class="field-checkbox">
+                            <input type="checkbox" data-bind="wifi.hidden">
+                            <span>Hidden network</span>
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="vcard" hidden autocomplete="off">
+                        <div class="field-row-2">
+                            <label class="field">
+                                <span class="field-label">First name</span>
+                                <input class="field-input" type="text" data-bind="vcard.firstName">
+                            </label>
+                            <label class="field">
+                                <span class="field-label">Last name</span>
+                                <input class="field-input" type="text" data-bind="vcard.lastName">
+                            </label>
+                        </div>
+                        <div class="field-row-2">
+                            <label class="field">
+                                <span class="field-label">Organization</span>
+                                <input class="field-input" type="text" data-bind="vcard.org">
+                            </label>
+                            <label class="field">
+                                <span class="field-label">Title</span>
+                                <input class="field-input" type="text" data-bind="vcard.title">
+                            </label>
+                        </div>
+                        <div class="field-row-2">
+                            <label class="field">
+                                <span class="field-label">Phone</span>
+                                <input class="field-input" type="tel" data-bind="vcard.phone">
+                            </label>
+                            <label class="field">
+                                <span class="field-label">Email</span>
+                                <input class="field-input" type="email" data-bind="vcard.email">
+                            </label>
+                        </div>
+                        <label class="field">
+                            <span class="field-label">Website</span>
+                            <input class="field-input" type="url" data-bind="vcard.url" placeholder="https://">
+                        </label>
+                    </form>
+
+                    <form class="form" data-form="geo" hidden autocomplete="off">
+                        <div class="field-row-2">
+                            <label class="field">
+                                <span class="field-label">Latitude</span>
+                                <input class="field-input" type="text" data-bind="geo.lat" placeholder="37.5665">
+                            </label>
+                            <label class="field">
+                                <span class="field-label">Longitude</span>
+                                <input class="field-input" type="text" data-bind="geo.lng" placeholder="126.9780">
+                            </label>
+                        </div>
+                        <p class="field-hint">Tip — in Google Maps, right-click any spot to copy its lat/lng.</p>
+                    </form>
+                </div>
+            </section>
+
+            <section class="section" aria-labelledby="style-heading">
+                <header class="section-head">
+                    <span class="section-num">02</span>
+                    <h2 class="section-title" id="style-heading">Style</h2>
+                    <span class="section-rule"></span>
+                </header>
+
+                <div class="customize-body">
+                    <div class="custom-row">
+                        <span class="custom-row-label">Foreground</span>
+                        <div class="swatches" data-target="fg">
+                            <button class="swatch" type="button" data-color="#0a0a0d" aria-current="true" style="--c:#0a0a0d" aria-label="Black"></button>
+                            <button class="swatch" type="button" data-color="#172a3a" style="--c:#172a3a" aria-label="Navy"></button>
+                            <button class="swatch" type="button" data-color="#0c2a13" style="--c:#0c2a13" aria-label="Forest"></button>
+                            <button class="swatch" type="button" data-color="#3d1818" style="--c:#3d1818" aria-label="Burgundy"></button>
+                            <button class="swatch" type="button" data-color="#291839" style="--c:#291839" aria-label="Plum"></button>
+                            <button class="swatch" type="button" data-color="#3d2c00" style="--c:#3d2c00" aria-label="Bronze"></button>
+                            <label class="swatch swatch-custom" aria-label="Custom color">
+                                <input type="color" data-color-custom="fg" value="#0a0a0d">
+                                <span class="swatch-custom-icon" aria-hidden="true">+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="custom-row">
+                        <span class="custom-row-label">Background</span>
+                        <div class="swatches" data-target="bg">
+                            <button class="swatch" type="button" data-color="#ffffff" aria-current="true" style="--c:#ffffff" aria-label="White"></button>
+                            <button class="swatch" type="button" data-color="#f6f1e8" style="--c:#f6f1e8" aria-label="Cream"></button>
+                            <button class="swatch" type="button" data-color="#e8eef0" style="--c:#e8eef0" aria-label="Mist"></button>
+                            <button class="swatch" type="button" data-color="#fef9c3" style="--c:#fef9c3" aria-label="Pale yellow"></button>
+                            <button class="swatch" type="button" data-color="#fce4ec" style="--c:#fce4ec" aria-label="Pale pink"></button>
+                            <button class="swatch" type="button" data-color="#dbe8d4" style="--c:#dbe8d4" aria-label="Pale green"></button>
+                            <label class="swatch swatch-custom" aria-label="Custom color">
+                                <input type="color" data-color-custom="bg" value="#ffffff">
+                                <span class="swatch-custom-icon" aria-hidden="true">+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="custom-row">
+                        <span class="custom-row-label">Pattern</span>
+                        <div class="shapes">
+                            <button class="shape" type="button" data-shape="square" aria-current="true">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6"/><rect x="10" y="2" width="5" height="5"/><rect x="17" y="2" width="5" height="5"/><rect x="2" y="10" width="5" height="5"/><rect x="10" y="10" width="5" height="5"/><rect x="2" y="17" width="5" height="5"/><rect x="10" y="17" width="5" height="5"/><rect x="17" y="17" width="5" height="5"/></svg>
+                                <span>Square</span>
+                            </button>
+                            <button class="shape" type="button" data-shape="rounded">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1.5"/><rect x="10" y="2" width="5" height="5" rx="1.2"/><rect x="17" y="2" width="5" height="5" rx="1.2"/><rect x="2" y="10" width="5" height="5" rx="1.2"/><rect x="10" y="10" width="5" height="5" rx="1.2"/><rect x="2" y="17" width="5" height="5" rx="1.2"/><rect x="10" y="17" width="5" height="5" rx="1.2"/><rect x="17" y="17" width="5" height="5" rx="1.2"/></svg>
+                                <span>Rounded</span>
+                            </button>
+                            <button class="shape" type="button" data-shape="dots">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="5" cy="5" r="3"/><circle cx="12.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="12.5" r="2.5"/><circle cx="12.5" cy="12.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="12.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/></svg>
+                                <span>Dots</span>
+                            </button>
+                            <button class="shape" type="button" data-shape="classy-rounded">
+                                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M2 4 Q2 2 4 2 H8 V8 H2 Z"/><path d="M16 2 H22 Q22 8 22 8 H16 Z"/><path d="M2 16 H8 Q8 22 8 22 H2 Z"/><path d="M22 16 V22 Q16 22 16 22 V16 Z"/><rect x="10" y="2" width="5" height="5" rx="2"/><rect x="2" y="10" width="5" height="5" rx="2"/><rect x="10" y="10" width="5" height="5" rx="2"/><rect x="17" y="10" width="5" height="5" rx="2"/><rect x="10" y="17" width="5" height="5" rx="2"/></svg>
+                                <span>Classy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <aside class="stage" aria-label="QR preview and download">
+            <div class="stage-header">
+                <span class="stage-label">Preview</span>
+                <span class="stage-status">
+                    <span class="pulse" aria-hidden="true"></span>
+                    Live
+                </span>
             </div>
-            <div class="right">
-                <div class="input-container" id="link-input-container">
-                    <div>Link</div>
-                    <input type="text" id="link-input" placeholder="https://...">
+
+            <div class="qr-frame" id="qr-frame">
+                <span class="reg reg-tl" aria-hidden="true"></span>
+                <span class="reg reg-tr" aria-hidden="true"></span>
+                <span class="reg reg-bl" aria-hidden="true"></span>
+                <span class="reg reg-br" aria-hidden="true"></span>
+                <div class="qr-canvas" id="qr-canvas" role="img" aria-label="Generated QR code preview"></div>
+            </div>
+
+            <div class="stage-stats">
+                <div class="stat">
+                    <span class="stat-key">Data</span>
+                    <span class="stat-value" id="stat-bytes">— B</span>
                 </div>
-                <div class="input-container" id="text-input-container">
-                    <div>Text</div>
-                    <input type="text" id="text-input" placeholder="Enter text...">
+                <div class="stat">
+                    <span class="stat-key">Type</span>
+                    <span class="stat-value" id="stat-type">URL</span>
                 </div>
-                <div class="input-action">
-                    <select id="size-select">
-                        <option value="80">80px</option>
-                        <option value="120">120px</option>
-                        <option value="180">180px</option>
-                        <option value="200">200px</option>
-                        <option value="240" selected>240px</option>
-                        <option value="300">300px</option>
-                    </select>
-                    <button id="generate-button">Generate</button>
+                <div class="stat">
+                    <span class="stat-key">EC</span>
+                    <span class="stat-value">Quartile</span>
                 </div>
             </div>
-        </div>
+
+            <div class="export">
+                <button class="export-primary" type="button" data-format="svg" aria-label="Download as SVG">
+                    <span class="export-primary-row">
+                        <span class="export-format">SVG</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </span>
+                    <span class="export-meta">Infinitely scalable · recommended</span>
+                </button>
+                <div class="export-secondary">
+                    <span class="export-or">or PNG at</span>
+                    <div class="export-png">
+                        <button type="button" data-format="png" data-size="512">512<span>px</span></button>
+                        <button type="button" data-format="png" data-size="1024">1024<span>px</span></button>
+                        <button type="button" data-format="png" data-size="2048">2048<span>px</span></button>
+                    </div>
+                </div>
+            </div>
+
+            <p class="stage-hint">
+                Tip — scan it before printing, especially with a logo or vivid colors.
+            </p>
+        </aside>
     </main>
-    <!-- <footer>
-        <p>&copy; 2023 WhaleCoding. All rights reserved.</p>
-    </footer> -->
+
+    <section class="content" id="about" aria-labelledby="about-heading">
+        <div class="content-inner">
+            <header class="content-head">
+                <span class="content-num">03</span>
+                <h2 class="content-title" id="about-heading"><em>About</em> makeqr.io</h2>
+                <span class="section-rule"></span>
+            </header>
+
+            <div class="content-grid">
+                <article class="content-block">
+                    <h3>What this is</h3>
+                    <p>makeqr.io is a free QR code generator that runs entirely in your browser. There's no signup, no email collection, no watermark on your downloads, and no ads anywhere on the page. Encode URLs, Instagram profiles, plain text, phone numbers, SMS, and Wi-Fi credentials.</p>
+                    <p>The QR codes generated here are <strong>static</strong> — they encode your data directly into the pattern, so they never expire and they keep working as long as the underlying destination does.</p>
+                </article>
+
+                <article class="content-block">
+                    <h3>What you can encode</h3>
+                    <ul class="content-list">
+                        <li><strong>URL</strong> — links to any web page, profile, or app deep link.</li>
+                        <li><strong>Instagram</strong> — point straight to a profile by handle.</li>
+                        <li><strong>Text</strong> — plain text up to several thousand characters.</li>
+                        <li><strong>Phone</strong> — tap-to-call with <code>tel:</code>.</li>
+                        <li><strong>SMS</strong> — open the messaging app with a pre-filled recipient and body.</li>
+                        <li><strong>Wi-Fi</strong> — auto-connect with SSID, password, and encryption.</li>
+                    </ul>
+                </article>
+
+                <article class="content-block">
+                    <h3>How to make a QR code</h3>
+                    <ol class="content-list">
+                        <li>Pick a content type at the top — URL is the most common.</li>
+                        <li>Type or paste your data into the field. The QR updates as you type.</li>
+                        <li>Optionally style it — choose foreground and background colors, pick a dot pattern.</li>
+                        <li>Download as SVG (best for print) or PNG (best for screens).</li>
+                    </ol>
+                </article>
+
+                <article class="content-block">
+                    <h3>Export &amp; style</h3>
+                    <ul class="content-list">
+                        <li><strong>SVG</strong> — lossless vector. Scales infinitely. Best for print, signage, packaging.</li>
+                        <li><strong>PNG</strong> at 512, 1024, and 2048 px — pick a size that matches the destination.</li>
+                        <li><strong>Custom colors</strong> — pick any foreground and background to match your brand.</li>
+                        <li><strong>Four patterns</strong> — square, rounded, dots, or classy.</li>
+                        <li><strong>Live preview</strong> — every keystroke updates the QR instantly.</li>
+                        <li><strong>Privacy-first</strong> — generation runs in your browser; we never see your data.</li>
+                    </ul>
+                </article>
+
+            </div>
+
+            <header class="content-head content-head-faq">
+                <span class="content-num">FAQ</span>
+                <h2 class="content-title"><em>Common</em> questions</h2>
+                <span class="section-rule"></span>
+            </header>
+
+            <div class="faq-list" itemscope itemtype="https://schema.org/FAQPage">
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Are the QR codes really free?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Yes. Every feature is free — no signup, no premium tier, and no watermark on the QR codes you download. The SVG and PNG files are yours to use however you'd like, including commercially.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Do these QR codes ever expire?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">No. The QR codes generated here are static — they encode your data directly into the pattern. They keep working forever, as long as the destination (URL, network, etc.) is still valid.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Can I use these QR codes commercially?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Absolutely. There are no usage restrictions. Print them on packaging, business cards, posters, restaurant menus, signage, products — anywhere you like.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Does makeqr.io track me or my QR data?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">The site uses Google Analytics for basic visit metrics, but the QR generation runs entirely in your browser. Your input never reaches any server because there is no server handling the QR data.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Should I download SVG or PNG?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">SVG is a vector format that stays sharp at any size — best for print, signage, business cards, and anywhere the size might change. PNG is a raster image at a fixed pixel size — best when you need a specific resolution or your software does not support SVG.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">How do I make a Wi-Fi QR code?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Pick the Wi-Fi tab, enter your network name (SSID) and password, and choose the encryption type. WPA/WPA2 is the most common. The QR code can then be scanned by most modern phones to connect to the network automatically.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Can I add a logo to the center?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Logo overlay is on the roadmap. For now, makeqr.io focuses on producing clean, highly-scannable QR codes with custom colors and dot patterns. Adding a center image will arrive in a future update.</p>
+                    </div>
+                </details>
+                <details class="faq" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <summary itemprop="name">Will the QR still work if I change colors?</summary>
+                    <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        <p itemprop="text">Yes, as long as there's enough contrast between the foreground (the dots) and the background. Dark dots on a light background scan most reliably. Always test scan it before printing — especially with custom colors.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-left">
+                <span class="footer-mark" aria-hidden="true">▣</span>
+                <span>makeqr.io</span>
+            </div>
+            <div class="footer-right">
+                <span>Generated locally in your browser</span>
+                <span class="dot" aria-hidden="true">·</span>
+                <span>© 2026</span>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
