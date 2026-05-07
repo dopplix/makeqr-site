@@ -35,8 +35,8 @@
 
     /* spacing */
     --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
-    --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-10: 40px;
-    --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
+    --s-5: 20px; --s-6: 24px; --s-7: 28px; --s-8: 32px;
+    --s-10: 40px; --s-12: 48px; --s-16: 64px; --s-20: 80px; --s-24: 96px;
 
     /* radii */
     --r-xs: 4px; --r-sm: 6px; --r-md: 10px;
@@ -95,8 +95,8 @@ svg { display: block; flex-shrink: 0; }
     position: absolute; left: 50%; top: -200px; transform: translateX(-50%);
     width: 1100px; height: 700px;
     background:
-        radial-gradient(50% 50% at 50% 50%, rgba(211, 255, 68, 0.07) 0%, transparent 70%),
-        radial-gradient(50% 50% at 30% 60%, rgba(120, 80, 200, 0.05) 0%, transparent 70%);
+        radial-gradient(50% 50% at 50% 50%, rgba(196, 200, 204, 0.05) 0%, transparent 70%),
+        radial-gradient(50% 50% at 30% 60%, rgba(120, 80, 200, 0.04) 0%, transparent 70%);
     filter: blur(20px);
 }
 
@@ -192,11 +192,20 @@ svg { display: block; flex-shrink: 0; }
     padding: var(--s-12) var(--s-8) var(--s-16);
     display: grid;
     grid-template-columns: minmax(0, 1fr) 460px;
+    grid-template-areas:
+        "hero    stage"
+        "content stage"
+        "style   stage";
+    grid-template-rows: auto auto 1fr;
     column-gap: var(--s-12);
+    row-gap: var(--s-10);
     align-items: start;
 }
 
-.controls { display: flex; flex-direction: column; gap: var(--s-10); min-width: 0; }
+.hero            { grid-area: hero;    min-width: 0; }
+.section-content { grid-area: content; min-width: 0; }
+.section-style   { grid-area: style;   min-width: 0; }
+.stage           { grid-area: stage;   min-width: 0; }
 
 @media (max-width: 1080px) {
     .main {
@@ -208,20 +217,24 @@ svg { display: block; flex-shrink: 0; }
 
 @media (max-width: 880px) {
     .main {
-        display: flex;
-        flex-direction: column;
-        padding: var(--s-8) var(--s-5) var(--s-12);
-        gap: var(--s-8);
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "hero"
+            "content"
+            "stage"
+            "style";
+        grid-template-rows: auto;
+        padding: var(--s-6) var(--s-5) var(--s-12);
+        row-gap: var(--s-8);
+        column-gap: 0;
     }
-    .controls { display: contents; }
-    .hero            { order: 1; }
-    .section-content { order: 2; }
-    .stage           { order: 3; }
-    .section-style   { order: 4; }
+    .section-head { margin-bottom: var(--s-4); }
+    .types { margin-bottom: var(--s-5); }
+    .customize-body { padding: var(--s-4); gap: var(--s-4); }
 }
 
 @media (max-width: 520px) {
-    .main { padding: var(--s-5) var(--s-4) var(--s-10); gap: var(--s-6); }
+    .main { padding: var(--s-5) var(--s-4) var(--s-10); row-gap: var(--s-7, 28px); }
 }
 
 
@@ -245,7 +258,7 @@ svg { display: block; flex-shrink: 0; }
 .hero-eyebrow-dot {
     width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent);
-    box-shadow: 0 0 0 3px rgba(211, 255, 68, 0.18);
+    box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 .hero h1 {
@@ -254,6 +267,8 @@ svg { display: block; flex-shrink: 0; }
     line-height: 0.98;
     letter-spacing: -0.025em;
     color: var(--text);
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 .hero-line-1 { display: block; }
 .hero-line-2 { display: block; color: var(--text-muted); margin-top: 4px; }
@@ -269,7 +284,7 @@ svg { display: block; flex-shrink: 0; }
 }
 
 @media (max-width: 880px) {
-    .hero h1 { font-size: clamp(40px, 11vw, 64px); }
+    .hero h1 { font-size: clamp(36px, 10vw, 56px); }
     .hero-sub { display: none; }
 }
 
@@ -399,7 +414,7 @@ svg { display: block; flex-shrink: 0; }
 .field-input:focus {
     border-color: var(--accent);
     background: var(--surface-2);
-    box-shadow: 0 0 0 4px rgba(211, 255, 68, 0.08);
+    box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .field-textarea { resize: vertical; line-height: 1.5; min-height: 64px; }
@@ -498,7 +513,7 @@ svg { display: block; flex-shrink: 0; }
     box-shadow:
         0 0 0 2px var(--bg),
         0 0 0 3px var(--accent),
-        0 0 16px rgba(211, 255, 68, 0.4);
+        0 0 16px var(--accent-glow);
 }
 
 .swatch-custom {
@@ -563,10 +578,12 @@ svg { display: block; flex-shrink: 0; }
     align-self: start;
     display: flex; flex-direction: column;
     gap: var(--s-4);
+    min-width: 0;
+    max-width: 100%;
 }
 
 @media (max-width: 880px) {
-    .stage { position: static; }
+    .stage { position: static; max-width: 460px; width: 100%; margin: 0 auto; }
 }
 
 .stage-header {
@@ -601,6 +618,9 @@ svg { display: block; flex-shrink: 0; }
     background: var(--qr-bg);
     border-radius: var(--r-xl);
     aspect-ratio: 1;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     box-shadow:
         0 0 0 1px var(--border),
         0 24px 60px -20px rgba(0, 0, 0, 0.6),
