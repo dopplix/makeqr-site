@@ -309,22 +309,29 @@ svg { display: block; flex-shrink: 0; }
 .section-num {
     font-family: var(--font-mono);
     font-size: 10px; font-weight: 500;
+    line-height: 1;
     color: var(--text-dim);
     letter-spacing: 0.14em;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
 }
 
 .section-title {
     font-family: var(--font-display);
     font-size: 22px;
     font-weight: 500;
+    line-height: 1;
     color: var(--text);
     letter-spacing: -0.02em;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
 }
 
 .section-rule {
     flex: 1;
     height: 1px;
     background: linear-gradient(to right, var(--border), transparent);
+    align-self: center;
 }
 
 
@@ -862,9 +869,12 @@ svg { display: block; flex-shrink: 0; }
 .content-num {
     font-family: var(--font-mono);
     font-size: 10.5px;
+    line-height: 1;
     color: var(--text-dim);
     letter-spacing: 0.16em;
     text-transform: uppercase;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
 }
 
 .content-title {
@@ -874,6 +884,8 @@ svg { display: block; flex-shrink: 0; }
     line-height: 1;
     color: var(--text);
     letter-spacing: -0.03em;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
 }
 .content-title em {
     color: var(--text-muted);
