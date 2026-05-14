@@ -29,9 +29,9 @@
     --qr-fg: #0a0a0d;
 
     /* typography */
-    --font-display: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
-    --font-body: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Geist Mono', ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
 
     /* spacing */
     --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
@@ -72,6 +72,7 @@ button { font-family: inherit; font-size: inherit; color: inherit; background: n
 input, textarea, select { font-family: inherit; color: inherit; background: none; border: none; outline: none; }
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 { font-weight: 400; }
+em, i { font-style: normal; }
 svg { display: block; flex-shrink: 0; }
 
 
@@ -254,36 +255,32 @@ svg { display: block; flex-shrink: 0; }
    ============================================================ */
 
 .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: var(--s-2);
+    display: inline-flex; align-items: center;
     font-family: var(--font-mono);
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.16em;
     color: var(--text-muted);
-    padding: var(--s-1) var(--s-3) var(--s-1) var(--s-2);
+    padding: var(--s-1) var(--s-3);
     border: 1px solid var(--border);
     border-radius: 999px;
     background: var(--surface);
     margin-bottom: var(--s-6);
 }
-.hero-eyebrow-dot {
-    width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 0 3px var(--accent-glow);
-}
 
 .hero h1 {
     font-family: var(--font-display);
     font-size: clamp(48px, 6.4vw, 84px);
+    font-weight: 500;
     line-height: 0.98;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.03em;
     color: var(--text);
     overflow-wrap: break-word;
     word-break: break-word;
 }
 .hero-line-1 { display: block; }
-.hero-line-2 { display: block; color: var(--text-muted); margin-top: 4px; }
-.hero-line-2 em { font-style: italic; color: var(--text-muted); }
+.hero-line-2 { display: block; color: var(--text-muted); margin-top: 8px; font-size: 0.65em; }
+.hero-line-2 em { font-style: normal; color: var(--text-muted); }
 .hero-line-2 em::after { content: ""; }
 
 .hero-sub {
@@ -319,9 +316,9 @@ svg { display: block; flex-shrink: 0; }
 .section-title {
     font-family: var(--font-display);
     font-size: 22px;
-    font-style: italic;
+    font-weight: 500;
     color: var(--text);
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
 }
 
 .section-rule {
@@ -873,12 +870,13 @@ svg { display: block; flex-shrink: 0; }
 .content-title {
     font-family: var(--font-display);
     font-size: clamp(28px, 3.5vw, 40px);
+    font-weight: 500;
     line-height: 1;
     color: var(--text);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
 }
 .content-title em {
-    font-style: italic;
+    font-size: 0.65em;
     color: var(--text-muted);
     font-weight: 400;
 }
