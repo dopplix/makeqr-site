@@ -876,7 +876,6 @@ svg { display: block; flex-shrink: 0; }
     letter-spacing: -0.03em;
 }
 .content-title em {
-    font-size: 0.65em;
     color: var(--text-muted);
     font-weight: 400;
 }
