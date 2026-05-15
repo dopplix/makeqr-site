@@ -10,6 +10,7 @@
 
 # production
 /build
+/reel/output/
 
 # misc
 .DS_Store

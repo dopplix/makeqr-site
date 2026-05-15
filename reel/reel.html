@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>makeqr.io Reel</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; overflow: hidden; background: #050506; }
+  body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    color: #f7f3ea;
+    -webkit-font-smoothing: antialiased;
+  }
+  .reel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at 50% 16%, rgba(132, 255, 184, 0.18), transparent 48%),
+      radial-gradient(ellipse at 90% 90%, rgba(255, 255, 255, 0.08), transparent 42%),
+      #08090a;
+  }
+  .reel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 100% 4px;
+    z-index: 10;
+  }
+  .topbar {
+    position: absolute;
+    top: 4.5vh;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    font-size: 1.6vh;
+    letter-spacing: 0.42em;
+    color: #7e897f;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .topbar span::before {
+    content: '';
+    display: inline-block;
+    width: 0.85vh;
+    height: 0.85vh;
+    margin-right: 1.2vh;
+    border-radius: 50%;
+    background: #77f29b;
+    box-shadow: 0 0 1.8vh rgba(119, 242, 155, 0.9);
+    vertical-align: 0.12vh;
+  }
+  .scene {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    padding: 0 7vw;
+  }
+  .hook {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    animation: hook-out 0.28s 1.25s forwards;
+  }
+  .hook-kicker {
+    color: #77f29b;
+    font-size: 2vh;
+    letter-spacing: 0.46em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4vh;
+  }
+  .hook-title {
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 13vh;
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  .hook-title em {
+    color: #77f29b;
+    font-style: normal;
+    text-shadow: 0 0 6vh rgba(119, 242, 155, 0.5);
+  }
+  .hook-proof {
+    margin-top: 3.2vh;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 5vh;
+    line-height: 0.95;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    color: #f7f3ea;
+    white-space: nowrap;
+  }
+  .hook-proof em {
+    color: inherit;
+    font-style: normal;
+  }
+  .hook-sub {
+    margin-top: 3vh;
+    color: #a8b0a6;
+    font-size: 1.9vh;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  @keyframes hook-out {
+    to { opacity: 0; transform: translateY(-3vh); }
+  }
+  .demo {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: demo-in 0.32s 1.45s forwards, demo-out 0.4s 12.2s forwards;
+  }
+  @keyframes demo-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes demo-out {
+    to { opacity: 0; transform: translateY(-2vh); }
+  }
+  .caption {
+    position: relative;
+    width: 100%;
+    height: 7vh;
+    margin-bottom: 2.6vh;
+    text-align: center;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 4.5vh;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  .caption > span {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    white-space: nowrap;
+  }
+  .caption > span.active { opacity: 1; }
+  .caption .accent { color: #77f29b; }
+  .phone {
+    width: 76%;
+    aspect-ratio: 9 / 16;
+    border-radius: 4.8vh;
+    overflow: hidden;
+    background: #0a0a0d;
+    box-shadow:
+      0 0 0 1.1vh #1b1d1f,
+      0 6vh 16vh rgba(0,0,0,0.62),
+      0 0 8vh rgba(119, 242, 155, 0.16);
+  }
+  .browser {
+    height: 5.6vh;
+    background: #17191b;
+    border-bottom: 1px solid #282b2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .url {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8vh;
+    padding: 0.7vh 1.6vh;
+    border-radius: 1.6vh;
+    background: #25282a;
+    color: #eff4ef;
+    font-size: 1.55vh;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .url svg {
+    width: 1.4vh;
+    height: 1.4vh;
+    fill: #77f29b;
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    height: calc(100% - 5.6vh);
+    border: 0;
+    background: #0a0a0d;
+  }
+  .cta {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    opacity: 0;
+    animation: cta-in 0.5s 12.6s forwards;
+  }
+  @keyframes cta-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cta-kicker {
+    color: #8d968b;
+    font-size: 1.7vh;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 4vh;
+    white-space: nowrap;
+  }
+  .cta-brand {
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 10.5vh;
+    line-height: 0.88;
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+  .cta-brand .dot { color: #77f29b; }
+  .cta-brand .io { color: #8d968b; }
+  .cta-pill {
+    margin-top: 5vh;
+    display: inline-flex;
+    align-items: center;
+    gap: 1.2vh;
+    padding: 2vh 3.2vh;
+    border: 2px solid #77f29b;
+    border-radius: 6vh;
+    background: rgba(119, 242, 155, 0.1);
+    color: #f7f3ea;
+    font-size: 2.8vh;
+    font-weight: 700;
+    box-shadow: 0 0 8vh rgba(119, 242, 155, 0.24);
+  }
+  .cta-pill svg {
+    width: 2.4vh;
+    height: 2.4vh;
+    fill: #77f29b;
+  }
+  .cta-line {
+    margin-top: 4.5vh;
+    font-family: Impact, 'Arial Narrow Bold', sans-serif;
+    font-size: 3.4vh;
+    text-transform: uppercase;
+  }
+  .cta-line .accent { color: #77f29b; }
+</style>
+</head>
+<body>
+<div class="reel">
+  <div class="topbar"><span>makeqr.io</span></div>
+
+  <section class="scene hook">
+    <div>
+      <div class="hook-kicker">Free QR Generator</div>
+      <div class="hook-title"><em>Free QR</em></div>
+      <div class="hook-proof"><em>No ads</em> · No watermark</div>
+      <div class="hook-sub">Static. Direct. Generated in your browser.</div>
+    </div>
+  </section>
+
+  <section class="scene demo">
+    <div class="caption">
+      <span data-cap="url">Paste a <span class="accent">URL</span></span>
+      <span data-cap="style">Customize the <span class="accent">style</span></span>
+      <span data-cap="wifi">Make a <span class="accent">Wi-Fi</span> QR</span>
+      <span data-cap="export">Download <span class="accent">SVG or PNG</span></span>
+    </div>
+    <div class="phone">
+      <div class="browser">
+        <div class="url">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7z"/></svg>
+          <span>makeqr.io</span>
+        </div>
+      </div>
+      <iframe id="demo-frame" src="../index.html"></iframe>
+    </div>
+  </section>
+
+  <section class="scene cta">
+    <div>
+      <div class="cta-kicker">Made in your browser</div>
+      <div class="cta-brand">makeqr<span class="dot">.</span><span class="io">io</span></div>
+      <div class="cta-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7z"/></svg>
+        <span>https://makeqr.io</span>
+      </div>
+      <div class="cta-line">Save it<span class="accent">.</span> Use it<span class="accent">.</span></div>
+    </div>
+  </section>
+</div>
+
+<script>
+(() => {
+  const frame = document.getElementById('demo-frame');
+  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  setTimeout(() => {
+    const hook = document.querySelector('.hook');
+    if (hook) hook.style.display = 'none';
+  }, 1500);
+
+  function showCap(name) {
+    document.querySelectorAll('.caption > span').forEach((el) => el.classList.remove('active'));
+    const active = document.querySelector(`.caption [data-cap="${name}"]`);
+    if (active) active.classList.add('active');
+  }
+
+  async function typeValue(doc, selector, value, perChar = 75) {
+    const el = doc.querySelector(selector);
+    if (!el) return;
+    el.focus();
+    el.value = '';
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+    for (const ch of value) {
+      el.value += ch;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      await delay(perChar);
+    }
+  }
+
+  function click(doc, selector) {
+    const el = doc.querySelector(selector);
+    if (el) el.click();
+  }
+
+  function injectDemoCss(doc) {
+    if (doc.getElementById('makeqr-reel-style')) return;
+    const style = doc.createElement('style');
+    style.id = 'makeqr-reel-style';
+    style.textContent = `
+      html { scroll-behavior: smooth !important; }
+      body { min-width: 0 !important; }
+      .topbar, .manifesto-strip, .hero, .content, .footer { display: none !important; }
+      .main {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 18px !important;
+        padding: 22px 22px 340px !important;
+      }
+      .section, .stage {
+        width: 100% !important;
+        max-width: none !important;
+      }
+      .section-head { margin-bottom: 12px !important; }
+      .section-title { font-size: 22px !important; }
+      .types { grid-template-columns: repeat(3, 1fr) !important; gap: 8px !important; }
+      .type { min-height: 54px !important; padding: 8px !important; font-size: 11px !important; }
+      .field-input { min-height: 54px !important; font-size: 16px !important; }
+      .customize-body { gap: 12px !important; }
+      .custom-row { gap: 8px !important; }
+      .shape span { font-size: 10px !important; }
+      .stage { position: relative !important; top: auto !important; }
+      .qr-frame { max-width: 290px !important; margin: 0 auto !important; }
+      .stage-hint, .stage-stats { display: none !important; }
+      .makeqr-pulse {
+        position: relative !important;
+        z-index: 80 !important;
+        box-shadow: 0 0 0 4px #77f29b, 0 0 28px rgba(119,242,155,.55) !important;
+      }
+      .makeqr-download-toast {
+        position: fixed;
+        left: 50%;
+        bottom: 24px;
+        transform: translateX(-50%);
+        z-index: 120;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: #77f29b;
+        color: #071009;
+        font: 700 14px ui-monospace, SFMono-Regular, Menlo, monospace;
+        letter-spacing: 0.02em;
+        box-shadow: 0 0 28px rgba(119,242,155,.52);
+        opacity: 0;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+      .makeqr-download-toast.is-visible {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-6px);
+      }
+    `;
+    doc.head.appendChild(style);
+  }
+
+  function pulse(doc, selector) {
+    doc.querySelectorAll('.makeqr-pulse').forEach((el) => el.classList.remove('makeqr-pulse'));
+    const el = doc.querySelector(selector);
+    if (el) {
+      el.classList.add('makeqr-pulse');
+      el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    }
+  }
+
+  function centerOn(doc, selector) {
+    const el = doc.querySelector(selector);
+    if (!el) return;
+    const root = doc.scrollingElement || doc.documentElement;
+    const rect = el.getBoundingClientRect();
+    const viewport = doc.documentElement.clientHeight;
+    const target = root.scrollTop + rect.top - (viewport / 2) + (rect.height / 2);
+    doc.defaultView.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+  }
+
+  async function showDownloadToast(doc, text) {
+    let toast = doc.querySelector('.makeqr-download-toast');
+    if (!toast) {
+      toast = doc.createElement('div');
+      toast.className = 'makeqr-download-toast';
+      doc.body.appendChild(toast);
+    }
+    toast.textContent = text;
+    await delay(80);
+    toast.classList.add('is-visible');
+    await delay(1150);
+    toast.classList.remove('is-visible');
+  }
+
+  frame.addEventListener('load', async () => {
+    const doc = frame.contentDocument;
+    injectDemoCss(doc);
+    await delay(1700);
+
+    showCap('url');
+    pulse(doc, '[data-bind="url.value"]');
+    await typeValue(doc, '[data-bind="url.value"]', 'https://makeqr.io/menu', 65);
+    await delay(550);
+
+    showCap('style');
+    pulse(doc, '[data-shape="dots"]');
+    click(doc, '[data-shape="dots"]');
+    await delay(450);
+    pulse(doc, '.swatches[data-target="fg"] [data-color="#0c2a13"]');
+    click(doc, '.swatches[data-target="fg"] [data-color="#0c2a13"]');
+    await delay(650);
+
+    showCap('wifi');
+    pulse(doc, '[data-type="wifi"]');
+    click(doc, '[data-type="wifi"]');
+    await delay(350);
+    pulse(doc, '[data-bind="wifi.ssid"]');
+    await typeValue(doc, '[data-bind="wifi.ssid"]', 'Studio Guest', 55);
+    await delay(180);
+    await typeValue(doc, '[data-bind="wifi.password"]', 'hello-2026', 50);
+    await delay(550);
+
+    showCap('export');
+    centerOn(doc, '.export-primary');
+    await delay(650);
+    pulse(doc, '.export-primary');
+    await delay(320);
+    click(doc, '.export-primary');
+    await showDownloadToast(doc, 'Downloaded makeqr.svg');
+    centerOn(doc, '.export-png');
+    await delay(280);
+    pulse(doc, '.export-png [data-size="1024"]');
+    await delay(300);
+    click(doc, '.export-png [data-size="1024"]');
+    await showDownloadToast(doc, 'Downloaded makeqr-1024.png');
+    doc.querySelectorAll('.makeqr-pulse').forEach((el) => el.classList.remove('makeqr-pulse'));
+  });
+})();
+</script>
+</body>
+</html>
